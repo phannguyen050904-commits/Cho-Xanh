@@ -122,26 +122,57 @@ nav {
 
 /* Banner */
 .banner {
-    width: 100%;
-    height: 400px;
-    border-radius: 8px;
-    margin-bottom: 20px;
     position: relative;
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(135deg, #1a9c37, #14832c); /* Gradient xanh lá */
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+.banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
 }
-.bannertext{
+
+.bannertext {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.bannertext h1 {
     color: white;
-    margin-bottom: 1.5rem;
-    font-size: 3rem;
+    font-size: 3.5em;
+    font-weight: bold;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+    margin: 0;
+    padding: 20px 40px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.3);
+    animation: float 3s ease-in-out infinite;
 }
+
+/* Animation cho text */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
 /* Categories */
 .categories {
     display: grid;
@@ -171,7 +202,7 @@ nav {
 }
 
 .category-name {
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 500;
 }
 
@@ -220,7 +251,7 @@ nav {
 }
 
 .product-name {
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 5px;
     height: 40px;
     overflow: hidden;

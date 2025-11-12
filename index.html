@@ -50,28 +50,47 @@
         </nav>
     </header>
 
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Banner -->
-        <div class="banner">
+    <!-- Banner với text bên trong -->
+    <div class="banner">
+        <div class="bannertext">
+            <h1 id="random-text">Mua đi😘👇</h1>
         </div>
-        
+    </div>
+
+    <script>
+    const messages = [
+        "Mua đi😘👇",
+        "Rau ngon lém🥕🍅🍎",
+        "Ăn thịt khum🍗🍖🥓",
+        "Lạc vào khu rừng hoa🌸🌺🌼🌻🌷🌹",
+    ];
+
+    function getRandomMessage() {
+        const randomIndex = Math.floor(Math.random() * messages.length);
+        return messages[randomIndex];
+    }
+
+    // Thay đổi text mỗi 5 giây
+    setInterval(() => {
+        document.getElementById('random-text').textContent = getRandomMessage();
+    }, 5000);
+    </script>
         <!-- Categories -->
         <div class="categories">
             <div class="category">
-                <i class="fas fa-apple-alt"></i>
+                    <img src="goods/rau.jfif" alt="rau" class="product-img">
                 <div class="category-name">Rau</div>
             </div>
             <div class="category">
-                <i class="fas fa-egg"></i>
-                <div class="category-name">Trứng</div>
+                    <img src="goods/thịt.jfif" alt="thịt" class="product-img">
+                <div class="category-name">Thịt</div>
             </div>
             <div class="category">
-                <i class="fas fa-carrot"></i>
+                    <img src="goods/củ.jfif" alt="củ" class="product-img">
                 <div class="category-name">củ</div>
             </div>
             <div class="category">
-                <i class="fas fa-apple-alt"></i>
+                    <img src="goods/quả.jfif" alt="quả" class="product-img">
                 <div class="category-name">quả</div>
             </div>
         </div>
@@ -81,17 +100,17 @@
         <div class="products">
             <div class="product">
                 <div class="product-image">
-                    <i class="fas fa-apple-alt"></i>
+                    <img src="goods/táo.jpg" alt="Táo" class="product-img">
                 </div>
                 <div class="product-info">
                     <div class="product-name">Táo</div>
-                    <div class="product-price">89.000đ/kg</div>
+                    <div class="product-price">50.000đ/kg</div>
                     <button class="add-to-cart">Thêm vào giỏ</button>
                 </div>
             </div>
             <div class="product">
                 <div class="product-image">
-                    <i class="fas fa-carrot"></i>
+                    <img src="goods/cà rốt.jpg" alt="carrot" class="product-img">
                 </div>
                 <div class="product-info">
                     <div class="product-name">Cà rốt</div>
@@ -101,17 +120,17 @@
             </div>
             <div class="product">
                 <div class="product-image">
-                    <i class="fas fa-wine-bottle"></i>
+                    <img src="goods/khoai tây.jpg" alt="khoai tây" class="product-img">
                 </div>
                 <div class="product-info">
                     <div class="product-name">Khoai Tây</div>
-                    <div class="product-price">10.000đ/kg</div>
+                    <div class="product-price">25.000đ/kg</div>
                     <button class="add-to-cart">Thêm vào giỏ</button>
                 </div>
             </div>
             <div class="product">
                 <div class="product-image">
-                    <i class="fas fa-cookie"></i>
+                    <img src="goods/bắp cải.jpg" alt="bắp cải" class="product-img">
                 </div>
                 <div class="product-info">
                     <div class="product-name">Bắp Cải</div>
@@ -121,7 +140,8 @@
             </div>
             <div class="product">
                 <div class="product-image">
-                    <i class="fas fa-cheese"></i>
+                    <img src="goods/dưa hấu.jpg" alt="dưa hấu" class="product-img">
+
                 </div>
                 <div class="product-info">
                     <div class="product-name">Dưa Hấu</div>
@@ -135,7 +155,7 @@
         <div class="products">
             <div class="product">
                 <div class="product-image">
-                    <i class="fas fa-cookie-bite"></i>
+                    <img src="goods/đu đủ.jpg" alt="đu đủ" class="product-img">
                 </div>
                 <div class="product-info">
                     <div class="product-name">Đu Đủ</div>
@@ -145,17 +165,17 @@
             </div>
             <div class="product">
                 <div class="product-image">
-                    <i class="fas fa-beer"></i>
+                    <img src="goods/nho.jfif" alt="nho" class="product-img">
                 </div>
                 <div class="product-info">
-                    <div class="product-name">Nho</div>
-                    <div class="product-price">50.000đ/kg</div>
+                    <div class="product-name">Nho xanh</div>
+                    <div class="product-price">65.000đ/kg</div>
                     <button class="add-to-cart">Thêm vào giỏ</button>
                 </div>
             </div>
             <div class="product">
                 <div class="product-image">
-                    <i class="fas fa-egg"></i>
+                    <img src="goods/trứng.jfif" alt="trứng" class="product-img">
                 </div>
                 <div class="product-info">
                     <div class="product-name">Trứng gà</div>
@@ -165,7 +185,7 @@
             </div>
             <div class="product">
                 <div class="product-image">
-                    <i class="fas fa-mortar-pestle"></i>
+                    <img src="goods/ổi.jfif" alt="ổi" class="product-img">
                 </div>
                 <div class="product-info">
                     <div class="product-name">Ổi</div>
@@ -175,11 +195,11 @@
             </div>
             <div class="product">
                 <div class="product-image">
-                    <i class="fas fa-bacon"></i>
+                    <img src="goods/cam.jfif" alt="cam" class="product-img">
                 </div>
                 <div class="product-info">
                     <div class="product-name">Cam</div>
-                    <div class="product-price">18.000đ/gói</div>
+                    <div class="product-price">14.000đ/gói</div>
                     <button class="add-to-cart">Thêm vào giỏ</button>
                 </div>
             </div>
