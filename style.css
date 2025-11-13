@@ -401,8 +401,10 @@ footer {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         padding: 0 10px;
-        transform: scale(0.4);
+        transform: scale(0.75);
         transform-origin: top center;
+        width: 133.33%; /* Bù lại việc scale down */
+        margin-left: -16.67%; /* Căn giữa sau khi scale */
     }
     
     .category {
@@ -418,9 +420,10 @@ footer {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         padding: 0 10px;
-        transform: scale(0.6);
+        transform: scale(0.75);
         transform-origin: top center;
         width: 133.33%; /* Bù lại việc scale down */
+        margin-left: -16.67%; /* Căn giữa sau khi scale */
         margin-bottom: 10px; /* Giảm margin để bù cho việc scale */
     }
     
@@ -492,8 +495,10 @@ footer {
     
     /* Điều chỉnh cho màn hình rất nhỏ */
     .categories, .products {
-        transform: scale(0.6);
+        transform: scale(0.75);
         transform-origin: top center;
+        width: 133.33%;
+        margin-left: -16.67%;
     }
     
     .nav-menu {
