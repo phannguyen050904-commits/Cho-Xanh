@@ -402,7 +402,7 @@ footer {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         padding: 0 15px;
-        transform: none; /* Xóa transform */
+        transform: 0.3;
         width: 100%; /* Đặt lại width */
         margin-left: 0; /* Đặt lại margin */
         margin-top: 20px;
