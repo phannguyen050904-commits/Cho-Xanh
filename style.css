@@ -536,3 +536,41 @@ footer {
         margin-right: 2px;
     }
 }
+/* Fix viewport và scaling issues */
+@viewport {
+    width: device-width;
+    zoom: 1.0;
+}
+
+@-ms-viewport {
+    width: device-width;
+}
+
+/* Đảm bảo không bị zoom out trên mobile */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Fix cho container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Thêm media query cho màn hình rất nhỏ */
+@media (max-width: 360px) {
+    .categories,
+    .products {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .bannertext h1 {
+        font-size: 1.2em;
+        padding: 8px 15px;
+    }
+}
