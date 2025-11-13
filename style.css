@@ -333,41 +333,161 @@ footer {
 }
 
 /* Responsive */
-@media (max-width: 992px) {
-    .categories {
-        grid-template-columns: repeat(4, 1fr);
-    }
-    
-    .products {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .footer-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
+/* Responsive cải tiến cho điện thoại */
 @media (max-width: 768px) {
     .header-top {
         flex-wrap: wrap;
+        padding: 10px 15px;
+    }
+    
+    .logo {
+        order: 1;
+        flex: 1;
+    }
+    
+    .logo h1 {
+        font-size: 18px;
+    }
+    
+    .header-actions {
+        order: 2;
+        gap: 15px;
+    }
+    
+    .header-action {
+        font-size: 10px;
+    }
+    
+    .header-action i {
+        font-size: 16px;
     }
     
     .search-bar {
         order: 3;
         max-width: 100%;
         margin: 10px 0 0;
+        width: 100%;
     }
     
+    /* Navigation */
+    .nav-container {
+        padding: 0 15px;
+        overflow-x: auto;
+    }
+    
+    .nav-menu {
+        gap: 15px;
+        padding-bottom: 5px;
+    }
+    
+    .nav-menu li a {
+        font-size: 12px;
+        white-space: nowrap;
+    }
+    
+    /* Banner */
+    .banner {
+        height: 200px;
+    }
+    
+    .bannertext h1 {
+        font-size: 1.8em;
+        padding: 15px 25px;
+    }
+    
+    /* Categories */
     .categories {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 0 10px;
+    }
+    
+    .category {
+        padding: 10px 5px;
+    }
+    
+    .category-name {
+        font-size: 14px;
+    }
+    
+    /* Products */
+    .section-title {
+        font-size: 18px;
+        margin: 20px 15px 15px;
     }
     
     .products {
         grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 0 10px;
+    }
+    
+    .product-image {
+        height: 120px;
+    }
+    
+    .product-info {
+        padding: 8px;
+    }
+    
+    .product-name {
+        font-size: 14px;
+        height: 36px;
+    }
+    
+    .product-price {
+        font-size: 14px;
+    }
+    
+    .add-to-cart {
+        padding: 6px;
+        font-size: 12px;
+    }
+    
+    /* Footer */
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+    }
+    
+    .footer-column h3 {
+        font-size: 16px;
+        margin-bottom: 15px;
     }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 480px) {
+    .header-top {
+        padding: 8px 10px;
+    }
+    
+    .logo h1 {
+        font-size: 16px;
+    }
+    
+    .header-actions {
+        gap: 10px;
+    }
+    
+    .header-action span {
+        display: none; /* Ẩn text, chỉ hiển thị icon trên màn hình rất nhỏ */
+    }
+    
+    .header-action i {
+        font-size: 18px;
+        margin-bottom: 0;
+    }
+    
+    .banner {
+        height: 150px;
+    }
+    
+    .bannertext h1 {
+        font-size: 1.4em;
+        padding: 10px 20px;
+    }
+    
     .categories {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -376,7 +496,35 @@ footer {
         grid-template-columns: 1fr;
     }
     
-    .footer-container {
-        grid-template-columns: 1fr;
+    .nav-menu {
+        gap: 10px;
+    }
+    
+    .nav-menu li a {
+        font-size: 11px;
+    }
+    
+    .nav-menu li a i {
+        margin-right: 2px;
+    }
+}
+
+/* Thêm hiệu ứng cho các phần tử tương tác */
+.category, .product, .header-action, .nav-menu li a {
+    transition: all 0.3s ease;
+}
+
+/* Cải thiện khả năng nhấn trên mobile */
+@media (max-width: 768px) {
+    .category, .product, .header-action, .nav-menu li a, .add-to-cart {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    .add-to-cart {
+        min-height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
