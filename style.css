@@ -643,10 +643,10 @@ html {
 }
 @media (max-width: 768px) {
     .snowflake {
-        font-size: 0.3rem;
+        font-size: 0.1rem;
 
     }
     .leaf{
-        font-size: 0.3rem;
+        font-size: 0.1rem;
     }
 }
