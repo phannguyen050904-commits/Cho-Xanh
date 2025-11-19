@@ -53,28 +53,145 @@
     <!-- Banner với text bên trong -->
     <div class="banner">
         <div class="bannertext">
-            <h1 id="random-text">Mua đi😘👇</h1>
+            <h1 id="random-text"></h1>
         </div>
     </div>
 
     <script>
-    const messages = [
-        "Mua đi😘👇",
-        "Rau ngon lém🥕🍅🍎",
-        "Ăn thịt khum🍗🍖🥓",
-        "Lạc vào khu rừng hoa🌸🌺🌼🌻🌷🌹",
-    ];
+const seasonalMessages = [
+    "Mùa Thu Lá Vàng Rơi 🍁",
+    "Đông Sang Anh Nhớ Em ❄",
+    "Không yêu xin đừng tạo thêm thói quen💔",
+    "Lạc vào khu rừng hoa🌸🌺🌼🌻🌷🌹",
+    "Chẳng hiểu sao lại nhung nhớ",
+    "Chẳng hiểu sao nữa, chẳng hiểu sao nữa",
+    "Và anh vẫn sẽ luôn yêu em",
+    "Luôn thương em",
+    "Mùa Thu Lá Vàng Rơi 🍁",
+    "Đông Sang Anh Nhớ Em ❄",
+    "Trong phút giây mỏi mệt",
+    "Anh nhận ra anh nhớ em",
 
-    function getRandomMessage() {
-        const randomIndex = Math.floor(Math.random() * messages.length);
-        return messages[randomIndex];
+
+];
+
+let currentPhase = 0;
+let isRandomPhase = false;
+let messageInterval;
+let nextSequentialIndex = -1; // -1 nghĩa là không có thông điệp tuần tự tiếp theo
+let availableRandomMessages = [2, 3, 4, 6, 8, 10, 12, 13]; // Chỉ các index có thể random (trừ thông điệp 8)
+
+function displaySeasonalMessage() {
+    const bannerText = document.getElementById('random-text');
+    
+    // Hiệu ứng fade out
+    bannerText.style.opacity = '0';
+    
+    setTimeout(() => {
+        // Hiển thị thông điệp mới
+        bannerText.textContent = seasonalMessages[currentPhase];
+        
+        // Hiệu ứng fade in
+        bannerText.style.opacity = '1';
+        
+        currentPhase++;
+        
+        if (currentPhase < 2) {
+            // Chuyển sang thông điệp mùa tiếp theo sau 3 giây
+            setTimeout(displaySeasonalMessage, 3000);
+        } else if (currentPhase === 2) {
+            // Sau khi hiển thị xong 2 thông điệp mùa, chuyển sang ngẫu nhiên
+            setTimeout(() => {
+                isRandomPhase = true;
+                startRandomMessages();
+            }, 3000);
+        }
+    }, 500);
+}
+
+function getNextMessage() {
+    if (nextSequentialIndex !== -1) {
+        // Nếu có thông điệp tuần tự tiếp theo, trả về nó
+        const randomIndex = availableRandomMessages[Math.floor(Math.random() * availableRandomMessages.length)];
+
+        const message = seasonalMessages[nextSequentialIndex];
+        nextSequentialIndex++;
+        
+        // Nếu đã hết chuỗi tuần tự, reset về random
+        if (nextSequentialIndex >= seasonalMessages.length) {
+            nextSequentialIndex = -1;
+        }
+        
+        return message;
+    } else {
+        const randomIndex = availableRandomMessages[Math.floor(Math.random() * availableRandomMessages.length)];
+        const message = seasonalMessages[randomIndex];
+        
+        // Kiểm tra nếu random trúng thông điệp thứ 7 (index 6)
+        if (randomIndex === 4) {
+            // Đặt nextSequentialIndex để hiển thị tuần tự từ thông điệp 8
+                nextSequentialIndex = 5;
+        }
+        if (randomIndex === 6) {
+            // Đặt nextSequentialIndex để hiển thị tuần tự từ thông điệp 8
+                nextSequentialIndex = 7;
+        }
+        if (randomIndex === 8) {
+            // Đặt nextSequentialIndex để hiển thị tuần tự từ thông điệp 8
+                nextSequentialIndex = 9;
+
+        }
+        if (randomIndex === 10) {
+            // Đặt nextSequentialIndex để hiển thị tuần tự từ thông điệp 8
+                nextSequentialIndex = 11;
+
+        }
+        return message;
     }
+}
 
-    // Thay đổi text mỗi 5 giây
-    setInterval(() => {
-        document.getElementById('random-text').textContent = getRandomMessage();
-    }, 5000);
-    </script>
+function startRandomMessages() {
+    // Dừng mọi interval cũ
+    if (messageInterval) {
+        clearInterval(messageInterval);
+    }
+    
+    // Hiển thị thông điệp đầu tiên ngay lập tức
+    displayNextRandomMessage();
+    
+    // Bắt đầu hiển thị thông điệp ngẫu nhiên mỗi 5 giây
+    messageInterval = setInterval(displayNextRandomMessage, 5000);
+}
+
+function displayNextRandomMessage() {
+    if (isRandomPhase) {
+        const bannerText = document.getElementById('random-text');
+        const nextMessage = getNextMessage();
+        
+        // Hiệu ứng fade out
+        bannerText.style.opacity = '0';
+        
+        setTimeout(() => {
+            bannerText.textContent = nextMessage;
+            // Hiệu ứng fade in
+            bannerText.style.opacity = '1';
+        }, 500);
+    }
+}
+
+// Thêm CSS cho hiệu ứng chuyển tiếp mượt mà
+const style = document.createElement('style');
+style.textContent = `
+    .bannertext h1 {
+        transition: opacity 0.5s ease-in-out;
+    }
+`;
+document.head.appendChild(style);
+
+displaySeasonalMessage();
+</script>
+
+</script>
         <!-- Categories -->
         <div class="categories">
             <div class="category">

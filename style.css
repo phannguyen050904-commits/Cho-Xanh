@@ -6,8 +6,30 @@
 }
 
 body {
-    background-color: #f5f5f5;
+    background-color: #8fffbd;
     color: #333;
+}
+@font-face {
+  font-family: 'MyFont';
+  src: url('MTO\ Astro\ City.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.snowflake {
+    position: absolute;
+    top: -50px;
+    color: white;
+    font-size: 1.5rem;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0.8;
 }
 
 /* Header */
@@ -150,10 +172,9 @@ nav {
 }
 
 .bannertext h1 {
+    font-family: 'MyFont', sans-serif;
     color: white;
-    font-size: 3.5em;
-    font-weight: bold;
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+    font-size: 3rem;
     margin: 0;
     padding: 20px 40px;
     background: rgba(255,255,255,0.2);
@@ -180,6 +201,8 @@ nav {
     gap: 15px;
     margin-bottom: 30px;
     margin-top: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 .category {
@@ -218,6 +241,8 @@ nav {
 }
 
 .products {
+    margin-left: 30px;
+    margin-right: 30px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 15px;
@@ -573,4 +598,46 @@ html {
         font-size: 1.2em;
         padding: 8px 15px;
     }
+}
+/* Thêm vào cuối file style.css */
+
+/* Animation cho tuyết rơi */
+/* Animation cho lá mùa thu rơi */
+.leaf {
+    position: fixed;
+    top: -50px;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0.8;
+    z-index: 9999;
+    font-size: 1.5rem;
+    animation-timing-function: linear;
+}
+
+@keyframes leaf-fall {
+    0% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateX(calc(var(--sway, 100px) * 2)) translateY(100vh) rotate(360deg);
+    }
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+/* Đảm bảo snowflake có các thuộc tính cần thiết */
+.snowflake {
+    position: fixed;
+    top: -50px;
+    color: #e6f7ff;
+    font-size: 1.5rem;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0.8;
+    z-index: 9999;
+    animation-timing-function: linear;
 }
