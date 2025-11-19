@@ -62,7 +62,7 @@ function createLeaf() {
     leaf.classList.add('leaf');
     
     // Các loại lá mùa thu khác nhau
-    const leaves = ['🍁', '🍂', '🥮'];
+    const leaves = ['🍁', '🍂'];
     const randomLeaf = leaves[Math.floor(Math.random() * leaves.length)];
     leaf.innerHTML = randomLeaf;
     
@@ -145,7 +145,7 @@ function startSnowFall() {
     // Đợi 6 giây để các lá cuối cùng rơi hết (thời gian rơi tối đa là 5s + buffer 1s)
     setTimeout(() => {
         // Bắt đầu tạo tuyết
-        snowInterval = setInterval(createSnowflake, 35); // Tạo tuyết mỗi 50ms
+        snowInterval = setInterval(createSnowflake, 50); // Tạo tuyết mỗi 50ms
     }, 3000);
 }
 
