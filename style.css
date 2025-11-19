@@ -641,3 +641,12 @@ html {
     z-index: 9999;
     animation-timing-function: linear;
 }
+@media (max-width: 768px) {
+    .snowflake {
+        font-size: 0.6rem;
+
+    }
+    .leaf{
+        font-size: 0.6rem;
+    }
+}
